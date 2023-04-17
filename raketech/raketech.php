@@ -12,7 +12,7 @@
 // Register shortcode
 function shortcode_raketech() {
     ob_start();
-    exibir_informacoes_json();
+    display_json_info();
     return ob_get_clean();
 }
 add_shortcode('plugin-raketech', 'shortcode_raketech');
@@ -24,7 +24,7 @@ function raketech_plugin_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'raketech_plugin_enqueue_styles' );
 
 // Function for displaying information from the JSON file.
-function exibir_informacoes_json() {
+function display_json_info() {
     // Read JSON file
     $json_string = file_get_contents(plugin_dir_path(__FILE__) . 'assets/json/data.json');
     
@@ -45,6 +45,11 @@ function exibir_informacoes_json() {
         </div>
     
         <?php
+
+        // Sort the toplist based on the "position" key
+        usort($toplist, function ($a, $b) {
+            return $a->position <=> $b->position;
+        });        
     
         // Loop through each item on the toplist
         foreach ($toplist as $item) {
