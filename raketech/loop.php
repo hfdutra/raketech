@@ -1,4 +1,4 @@
-<div class="table loop">
+<div class="table loop position-<?php echo $item->position; ?>">
   <div class="table-row">
 <!-- First Column: Casino -->
     <div class="table-cell brand">
