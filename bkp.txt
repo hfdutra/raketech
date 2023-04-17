@@ -1,0 +1,20 @@
+<?php
+
+            // Mostrar os valores do item
+            echo "Brand ID: " . $item->brand_id . "<br>";
+            echo "Position: " . $item->position . "<br>";
+            echo "Rating: " . $item->info->rating . "<br>";
+            echo "Bonus: " . $item->info->bonus . "<br>";
+            echo "Features: ";
+            foreach ($item->info->features as $feature) {
+                echo $feature . ", ";
+            }
+            echo "<br>";
+            echo "Terms and Conditions: " . $item->terms_and_conditions . "<br>";
+            echo "Logo: " . $item->logo . "<br>";
+            echo "Play URL: " . $item->play_url . "<br>";
+            echo "<br>";
+
+     
+
+?>
